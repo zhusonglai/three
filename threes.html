@@ -2,13 +2,13 @@
 <html>
 <head>
   <meta charset=utf-8>
-  <title>我的第二个Three.js案例</title>
+  <title>我的第三个Three.js案例</title>
   <script src="https://cdn.bootcss.com/three.js/92/three.js"></script>
-  <script src="https://cdn.bootcss.com/jquery/1.9.0/jquery.js"></script>
   <style>
     body {
       margin: 0;
     }
+
     canvas {
       width: 100%;
       height: 100%;
@@ -17,8 +17,10 @@
   </style>
 </head>
 <body>
+
+<div id="output" />
 <script>
-  $(function () {
+  function init() {
     var scene = new THREE.Scene();
 
     var cammera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
@@ -69,11 +71,14 @@
     cammera.position.z = 30;
 
     cammera.lookAt(scene.position);
-    $('#output').append(renderer.domElement);
+    // $('#output').append(renderer.domElement);
+    document.getElementById('output').appendChild(renderer.domElement);
+    // document.getElementById('output').appendChild(renderer.domElement);
     renderer.render(scene, cammera);
 
-  });
+  }
+
+  window.onload = init();
 </script>
-<div id="output" />
 </body>
 </html>
